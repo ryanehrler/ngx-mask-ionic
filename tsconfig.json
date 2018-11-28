@@ -16,6 +16,14 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "ngx-mask-ionic-lib": [
+        "dist/ngx-mask-ionic-lib"
+      ],
+      "ngx-mask-ionic-lib/*": [
+        "dist/ngx-mask-ionic-lib/*"
+      ]
+    }
   }
 }

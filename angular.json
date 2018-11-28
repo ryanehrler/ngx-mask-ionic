@@ -133,6 +133,41 @@
           }
         }
       }
+    },
+    "ngx-mask-ionic-lib": {
+      "root": "projects/ngx-mask-ionic-lib",
+      "sourceRoot": "projects/ngx-mask-ionic-lib/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ngx-mask-ionic-lib/tsconfig.lib.json",
+            "project": "projects/ngx-mask-ionic-lib/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-mask-ionic-lib/src/test.ts",
+            "tsConfig": "projects/ngx-mask-ionic-lib/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-mask-ionic-lib/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngx-mask-ionic-lib/tsconfig.lib.json",
+              "projects/ngx-mask-ionic-lib/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "ngx-mask-ionic"
