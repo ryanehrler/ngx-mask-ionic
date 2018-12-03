@@ -1,10 +1,10 @@
-import { Component, OnInit, Input, forwardRef } from "@angular/core";
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
+import { Component, OnInit, Input, forwardRef } from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
-  selector: "app-input-container",
-  templateUrl: "./input-container.component.html",
-  styleUrls: ["./input-container.component.scss"],
+  selector: 'app-input-container',
+  templateUrl: './input-container.component.html',
+  styleUrls: ['./input-container.component.scss'],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
@@ -14,7 +14,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
   ]
 })
 export class InputContainerComponent implements ControlValueAccessor {
-  private innerValue: any = "";
+  private innerValue: any = '';
   private onChangeCallback: (_: any) => void;
   private onTouchedCallback: () => void;
 

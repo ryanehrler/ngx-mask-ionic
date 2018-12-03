@@ -1,21 +1,12 @@
-import {
-  Directive,
-  HostListener,
-  Inject,
-  Input,
-} from "@angular/core";
-import { DOCUMENT } from "@angular/common";
-import {
-  NgControl
-} from "@angular/forms";
-import { MaskService } from "./mask.service";
-import { IConfig } from "./config";
+import { Directive, HostListener, Inject, Input } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { NgControl } from '@angular/forms';
+import { MaskService } from './mask.service';
+import { IConfig } from './config';
 
 @Directive({
-  selector: "[mask]",
-  providers: [
-    MaskService
-  ]
+  selector: '[mask]',
+  providers: [MaskService]
 })
 export class MaskDirective {
   private _maskValue: string;
@@ -31,11 +22,11 @@ export class MaskDirective {
     @Inject(DOCUMENT) private document: any,
     private _maskService: MaskService,
     private _ngControl: NgControl
-  ) { }
+  ) {}
 
-  @Input("mask")
+  @Input('mask')
   public set maskExpression(value: string) {
-    this._maskValue = value || "";
+    this._maskValue = value || '';
     if (!this._maskValue) {
       return;
     }
@@ -44,7 +35,7 @@ export class MaskDirective {
   }
 
   @Input()
-  public set specialCharacters(value: IConfig["specialCharacters"]) {
+  public set specialCharacters(value: IConfig['specialCharacters']) {
     if (
       !value ||
       !Array.isArray(value) ||
@@ -56,7 +47,7 @@ export class MaskDirective {
   }
 
   @Input()
-  public set patterns(value: IConfig["patterns"]) {
+  public set patterns(value: IConfig['patterns']) {
     if (!value) {
       return;
     }
@@ -64,7 +55,7 @@ export class MaskDirective {
   }
 
   @Input()
-  public set prefix(value: IConfig["prefix"]) {
+  public set prefix(value: IConfig['prefix']) {
     if (!value) {
       return;
     }
@@ -72,7 +63,7 @@ export class MaskDirective {
   }
 
   @Input()
-  public set sufix(value: IConfig["sufix"]) {
+  public set sufix(value: IConfig['sufix']) {
     if (!value) {
       return;
     }
@@ -80,12 +71,12 @@ export class MaskDirective {
   }
 
   @Input()
-  public set dropSpecialCharacters(value: IConfig["dropSpecialCharacters"]) {
+  public set dropSpecialCharacters(value: IConfig['dropSpecialCharacters']) {
     this._maskService.dropSpecialCharacters = value;
   }
 
   @Input()
-  public set showMaskTyped(value: IConfig["showMaskTyped"]) {
+  public set showMaskTyped(value: IConfig['showMaskTyped']) {
     if (!value) {
       return;
     }
@@ -93,12 +84,12 @@ export class MaskDirective {
   }
 
   @Input()
-  public set showTemplate(value: IConfig["showTemplate"]) {
+  public set showTemplate(value: IConfig['showTemplate']) {
     this._maskService.showTemplate = value;
   }
 
   @Input()
-  public set clearIfNotMatch(value: IConfig["clearIfNotMatch"]) {
+  public set clearIfNotMatch(value: IConfig['clearIfNotMatch']) {
     this._maskService.clearIfNotMatch = value;
   }
 
@@ -114,7 +105,7 @@ export class MaskDirective {
       (el.selectionStart as number) === 1
         ? (el.selectionStart as number) + this._maskService.prefix.length
         : (el.selectionStart as number);
-    let caretShift: number = 0;
+    let caretShift = 0;
     this._maskService.applyValueChanges(
       position,
       (shift: number) => (caretShift = shift)
@@ -128,7 +119,7 @@ export class MaskDirective {
         ? this._position
         : position +
           // tslint:disable-next-line
-          ((e as any).inputType === "deleteContentBackward" ? 0 : caretShift);
+          ((e as any).inputType === 'deleteContentBackward' ? 0 : caretShift);
     this._position = null;
   }
 
@@ -155,7 +146,7 @@ export class MaskDirective {
     if (this._maskService.showMaskTyped) {
       this._maskService.maskIsShown = this._maskService.maskExpression.replace(
         /[0-9]/g,
-        "_"
+        '_'
       );
     }
     el.value =
@@ -207,18 +198,18 @@ export class MaskDirective {
 
   /** It disables the input element */
   public setDisabledState(isDisabled: boolean): void {
-    this._maskService.setFormElementProperty("disabled", isDisabled);
+    this._maskService.setFormElementProperty('disabled', isDisabled);
   }
 
   private _repeatPatternSymbols(maskExp: string): string {
     return (
       (maskExp.match(/{[0-9]+}/) &&
         maskExp
-          .split("")
+          .split('')
           .reduce((accum: string, currval: string, index: number): string => {
-            this._start = currval === "{" ? index : this._start;
+            this._start = currval === '{' ? index : this._start;
 
-            if (currval !== "}") {
+            if (currval !== '}') {
               return this._maskService._findSpecialChar(currval)
                 ? accum + currval
                 : accum;
@@ -231,7 +222,7 @@ export class MaskDirective {
               maskExp[this._start - 1]
             );
             return accum + repaceWith;
-          }, "")) ||
+          }, '')) ||
       maskExp
     );
   }
@@ -248,5 +239,4 @@ export class MaskDirective {
 
     this._maskService.setValue(m);
   }
-
 }

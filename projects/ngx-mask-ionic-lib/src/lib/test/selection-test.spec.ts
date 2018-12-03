@@ -4,9 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { TestMaskComponent } from './utils/test-component.component';
 import { equal } from './utils/test-functions.component';
 
-
 describe('Directive: Mask', () => {
-
   let fixture: ComponentFixture<TestMaskComponent>;
   let component: TestMaskComponent;
 
@@ -23,6 +21,8 @@ describe('Directive: Mask', () => {
   it('it should clear if you select all', () => {
     component.mask = '(000) 000-0000';
     equal('123', '(123', fixture);
-    const el: HTMLInputElement = document.getElementById('maska') as HTMLInputElement;
+    const el: HTMLInputElement = document.getElementById(
+      'maska'
+    ) as HTMLInputElement;
   });
 });

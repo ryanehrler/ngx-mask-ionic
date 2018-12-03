@@ -8,9 +8,8 @@ describe('InputContainerComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ InputContainerComponent ]
-    })
-    .compileComponents();
+      declarations: [InputContainerComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

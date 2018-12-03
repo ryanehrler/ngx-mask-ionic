@@ -9,10 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { NgxMaskModule } from 'ngx-mask-ionic-lib';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    InputContainerComponent
-  ],
+  declarations: [AppComponent, InputContainerComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -22,4 +19,4 @@ import { NgxMaskModule } from 'ngx-mask-ionic-lib';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

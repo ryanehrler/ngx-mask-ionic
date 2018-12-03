@@ -17,7 +17,7 @@
     "lib:format-ts": "node_modules/.bin/prettier --write --list-different \"projects/**/*.ts\"",
     "lib:format-html": "node_modules/.bin/glob-run html-beautify -r \"projects/**/*.html\"",
     "lib:format-css": "node_modules/.bin/glob-run css-beautify -r \"projects/**/*.scss\"",
-    "lint-format": "npm run lint-fix && npm run format-ts && npm run format-html && npm run format-css && npm run lib:lint-fix && npm run lib:format-ts && npm run lib:format-html && npm run lib:format-css",
+    "lint-format": "npm run lint-fix && npm run format-ts && npm run format-html && npm run format-css && npm run lib:format-ts && npm run lib:format-html && npm run lib:format-css",
     "check-for-tslint-prettier-conflicts": "node_modules/.bin/tslint-config-prettier-check ./tslint.json"
   },
   "private": true,
@@ -45,6 +45,7 @@
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
     "codelyzer": "~4.5.0",
+    "glob-run": "^0.1.6",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
     "js-beautify": "^1.8.8",

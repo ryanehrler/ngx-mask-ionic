@@ -1,15 +1,15 @@
-import { ElementRef, Inject, Injectable, Renderer2 } from "@angular/core";
-import { config, IConfig } from "./config";
-import { DOCUMENT } from "@angular/common";
-import { MaskApplierService } from "./mask-applier.service";
-import { NgControl } from "@angular/forms";
+import { ElementRef, Inject, Injectable, Renderer2 } from '@angular/core';
+import { config, IConfig } from './config';
+import { DOCUMENT } from '@angular/common';
+import { MaskApplierService } from './mask-applier.service';
+import { NgControl } from '@angular/forms';
 
 @Injectable()
 export class MaskService extends MaskApplierService {
-  public maskExpression: string = "";
-  public isNumberValue: boolean = false;
-  public showMaskTyped: boolean = false;
-  public maskIsShown: string = "";
+  public maskExpression = '';
+  public isNumberValue = false;
+  public showMaskTyped = false;
+  public maskIsShown = '';
   private _formElement: HTMLInputElement;
   private unmaskedValue: string | number;
   public onTouch = () => {};
@@ -25,13 +25,13 @@ export class MaskService extends MaskApplierService {
     this.setFormElement(_elementRef.nativeElement);
 
     setTimeout(() => {
-      if (this._formElement.localName !== "input") {
-        const inputEl = this._elementRef.nativeElement.querySelector("input");
+      if (this._formElement.localName !== 'input') {
+        const inputEl = this._elementRef.nativeElement.querySelector('input');
         if (inputEl != null) {
           this.setFormElement(inputEl);
         } else {
           console.warn(
-            "mask-service: Could not find Input Element.  Please make sure one is present."
+            'mask-service: Could not find Input Element.  Please make sure one is present.'
           );
         }
       }
@@ -53,8 +53,8 @@ export class MaskService extends MaskApplierService {
     cb: Function = () => {}
   ): string {
     this.maskIsShown = this.showMaskTyped
-      ? this.maskExpression.replace(/[0-9]/g, "_")
-      : "";
+      ? this.maskExpression.replace(/[0-9]/g, '_')
+      : '';
     if (!inputValue && this.showMaskTyped) {
       return this.prefix + this.maskIsShown;
     }
@@ -84,17 +84,17 @@ export class MaskService extends MaskApplierService {
 
   public showMaskInInput(): void {
     if (this.showMaskTyped) {
-      this.maskIsShown = this.maskExpression.replace(/[0-9]/g, "_");
+      this.maskIsShown = this.maskExpression.replace(/[0-9]/g, '_');
     }
   }
 
   public clearIfNotMatchFn(): void {
-    console.log("clear-if-not-matched");
+    console.log('clear-if-not-matched');
     if (
       this.clearIfNotMatch === true &&
       this.maskExpression.length !== this._formElement.value.length
     ) {
-      this.setValue("");
+      this.setValue('');
       this.applyMask(this._formElement.value, this.maskExpression);
     }
   }
@@ -136,7 +136,7 @@ export class MaskService extends MaskApplierService {
     specialCharactersForRemove: string[]
   ): string {
     return value
-      ? value.replace(this._regExpForRemove(specialCharactersForRemove), "")
+      ? value.replace(this._regExpForRemove(specialCharactersForRemove), '')
       : value;
   }
 
@@ -144,20 +144,20 @@ export class MaskService extends MaskApplierService {
     if (!this.prefix) {
       return value;
     }
-    return value ? value.replace(this.prefix, "") : value;
+    return value ? value.replace(this.prefix, '') : value;
   }
 
   private _removeSufix(value: string): string {
     if (!this.sufix) {
       return value;
     }
-    return value ? value.replace(this.sufix, "") : value;
+    return value ? value.replace(this.sufix, '') : value;
   }
 
   private _regExpForRemove(specialCharactersForRemove: string[]): RegExp {
     return new RegExp(
-      specialCharactersForRemove.map((item: string) => `\\${item}`).join("|"),
-      "gi"
+      specialCharactersForRemove.map((item: string) => `\\${item}`).join('|'),
+      'gi'
     );
   }
 
