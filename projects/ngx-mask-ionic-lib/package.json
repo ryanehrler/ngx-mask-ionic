@@ -1,8 +1,12 @@
 {
   "name": "ngx-mask-ionic",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "peerDependencies": {
     "@angular/common": "^7.0.0",
     "@angular/core": "^7.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ryanehrler/ngx-mask-ionic"
   }
 }
