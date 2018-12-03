@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { MaskApplierService } from '../mask-applier.service';
 import { MaskPipe } from '../mask.pipe';
-import { NgxMaskModule } from '../ngx-mask.module';
+import { NgxMaskIonicModule } from '../ngx-mask-ionic.module';
 import { IConfig } from '../config';
 
 describe('Pipe: Mask', () => {
@@ -9,7 +9,7 @@ describe('Pipe: Mask', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [NgxMaskModule.forRoot()]
+      imports: [NgxMaskIonicModule.forRoot()]
     });
   });
 

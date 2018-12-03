@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { IConfig } from 'public_api';
+import { IConfig } from '../../../public_api';
 
 @Component({
   selector: 'test-mask',

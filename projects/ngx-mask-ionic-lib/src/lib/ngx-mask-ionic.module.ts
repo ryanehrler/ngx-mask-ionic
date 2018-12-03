@@ -10,11 +10,11 @@ import { MaskPipe } from './mask.pipe';
   exports: [MaskDirective, MaskPipe],
   declarations: [MaskDirective, MaskPipe]
 })
-export class NgxMaskModule {
+export class NgxMaskIonicModule {
 
   public static forRoot(configValue?: optionsConfig): ModuleWithProviders {
     return {
-      ngModule: NgxMaskModule,
+      ngModule: NgxMaskIonicModule,
       providers: [
         {
           provide: NEW_CONFIG,
@@ -34,7 +34,7 @@ export class NgxMaskModule {
   }
   public static forChild(configValue?: optionsConfig): ModuleWithProviders {
     return {
-      ngModule: NgxMaskModule,
+      ngModule: NgxMaskIonicModule,
     };
   }
 }
