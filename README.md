@@ -30,6 +30,27 @@ import {NgxMaskIonicModule} from 'ngx-mask-ionic'
   (...)
   imports: [
     NgxMaskIonicModule.forRoot(options)
+    // Or no options and use default values
+    NgxMaskIonicModule.forRoot()
+
+    // ^^^ Chose one of the two options above, but not both.
+  ]
+  (...)
+})
+
+```
+
+... And in your page Module (eg. HomeModule, MyPageModule, ..)
+
+```typescript
+import {NgxMaskIonicModule} from 'ngx-mask-ionic'
+
+(...)
+
+@NgModule({
+  (...)
+  imports: [
+    NgxMaskIonicModule
   ]
   (...)
 })
