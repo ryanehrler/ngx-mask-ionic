@@ -1,18 +1,18 @@
-import { ModuleWithProviders, NgModule } from '@angular/core';
-
 import {
   config,
   INITIAL_CONFIG,
   initialConfig,
   NEW_CONFIG,
   optionsConfig
-} from './config';
+  } from './config';
 import { MaskApplierService } from './mask-applier.service';
 import { MaskDirective } from './mask.directive';
 import { MaskPipe } from './mask.pipe';
+import { ModuleWithProviders, NgModule } from '@angular/core';
+
 
 @NgModule({
-  providers: [MaskApplierService],
+  providers: [MaskApplierService, MaskPipe],
   exports: [MaskDirective, MaskPipe],
   declarations: [MaskDirective, MaskPipe]
 })
@@ -33,7 +33,8 @@ export class NgxMaskIonicModule {
           provide: config,
           useFactory: _configFactory,
           deps: [INITIAL_CONFIG, NEW_CONFIG]
-        }
+        },
+        MaskPipe
       ]
     };
   }
