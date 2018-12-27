@@ -153,6 +153,10 @@ and in your component
 
 ```typescript
 public customPatterns = {'0': { pattern: new RegExp('\[a-zA-Z\]')}};
+
+// OR
+
+public customPatterns = pattern: { '0': { pattern: /[a-zA-Z']/ }};
 ```
 
 ##### Then:

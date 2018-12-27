@@ -5,6 +5,12 @@
 </div>
 <div>
   <span>Container Input</span>
-  <app-input-container mask="(000) 000-0000" [(ngModel)]="wrappedInputValue"></app-input-container>
+  <app-input-container [mask]="masks.phoneNumber" [(ngModel)]="wrappedInputValue"></app-input-container>
   <span>{{wrappedInputValue}}</span>
+</div>
+
+<div>
+  <span>First Last Name</span>
+  <input type="text" [mask]="masks.firstLast.mask" [patterns]="masks.firstLast.pattern" [dropSpecialCharacters]="false"
+   [(ngModel)]="firstLastInputValue" />
 </div>

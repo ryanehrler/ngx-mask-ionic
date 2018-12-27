@@ -1,12 +1,12 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { InputContainerComponent } from './input-container/input-container.component';
+import { AppRoutingModule } from './app-routing.module';
+import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { InputContainerComponent } from './input-container/input-container.component';
+import { NgModule } from '@angular/core';
+import { NgxMaskIonicModule } from 'ngx-mask-ionic-lib';
 
-import { NgxMaskModule } from 'ngx-mask-ionic-lib';
+
 
 @NgModule({
   declarations: [AppComponent, InputContainerComponent],
@@ -14,7 +14,7 @@ import { NgxMaskModule } from 'ngx-mask-ionic-lib';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    NgxMaskModule.forRoot()
+    NgxMaskIonicModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

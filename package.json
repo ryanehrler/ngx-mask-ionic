@@ -9,6 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "lib:build": "ng build ngx-mask-ionic-lib",
+    "lib:build-watch": "ng build ngx-mask-ionic-lib --watch",
     "lib:copy-readme": "node_modules/.bin/copyfiles ./README.md ./dist/ngx-mask-ionic-lib",
     "lib:publish": "npm run lib:build && npm run lib:copy-readme && cd dist/ngx-mask-ionic-lib && npm publish",
     "lint-fix": "node_modules/.bin/tslint --fix --project tsconfig.json",
