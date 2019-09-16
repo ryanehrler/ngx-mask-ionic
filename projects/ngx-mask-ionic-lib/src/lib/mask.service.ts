@@ -89,7 +89,6 @@ export class MaskService extends MaskApplierService {
   }
 
   public clearIfNotMatchFn(): void {
-    console.log('clear-if-not-matched');
     if (
       this.clearIfNotMatch === true &&
       this.maskExpression.length !== this._formElement.value.length
