@@ -48,7 +48,7 @@
     "@types/node": "~8.9.4",
     "codelyzer": "~4.5.0",
     "copyfiles": "^2.1.0",
-    "glob-run": "^0.1.6",
+    "glob-run": "^0.1.7",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
     "js-beautify": "^1.8.8",
